@@ -40,8 +40,7 @@ return result
 }
 
 app.get("/vessle/:name",(req,res)=>{
-  let nameParam = req.params.name
-  console.log(nameParam)
+  console.log(jsonLogs()[0])
   res.json(jsonLogs())
 });
 
