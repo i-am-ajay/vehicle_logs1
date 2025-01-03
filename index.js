@@ -66,6 +66,7 @@ app.get('/', (req, res) => {
 app.get("/vessle/setArray",(req,res)=>{
   array = req.query.array
   latLngArray = array
+  console.log(latLngArray)
   res.send("Array set")
 })
 
