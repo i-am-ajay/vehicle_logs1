@@ -46,7 +46,7 @@ return result
 app.get("/vessle/:position",(req,res)=>{
   console.log(jsonLogs()[0])
   res.json(jsonLogs(index))
-  if(index == 3){
+  if(index < 3){
     index++;
   }
   
