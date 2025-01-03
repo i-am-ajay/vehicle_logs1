@@ -3,11 +3,13 @@ const { resolve } = require('path');
 
 const app = express();
 const port = 3010;
-
+let index = 0;
 app.use(express.static('static'));
 
-function jsonLogs(){
-  result = [{
+function jsonLogs(iteration){
+  latLngArray = [{"pos":{"lat":1,"lang":1}},{"pos":{"lat":2,"lang":2}},
+  {"pos":{"lat":3,"lang":3}},{"pos":{"lat":4,"lang":4}}]
+  result = {
     "AIS":{
         "MMSI":227441980,
         "TIMESTAMP":"2017-08-11 11:17:37 UTC",
@@ -35,13 +37,16 @@ function jsonLogs(){
         "ECA": false,
         "DISTANCE_REMAINING": null,
         "ETA_PREDICTED": null
-        }}]
-return result
+        }}
+result["AIS"]["lat"] = latLngArray[index].pos.lat
+result["AIS"]["lng"] = latLngArray[index].pos.lng
+return result[]
 }
 
-app.get("/vessle/:name",(req,res)=>{
+app.get("/vessle/:position",(req,res)=>{
   console.log(jsonLogs()[0])
-  res.json(jsonLogs())
+  res.json(jsonLogs(index))
+  index++;
 });
 
 app.get('/', (req, res) => {
