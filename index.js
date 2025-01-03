@@ -40,7 +40,7 @@ function jsonLogs(iteration){
         }}
 result["AIS"]["lat"] = latLngArray[index].pos.lat
 result["AIS"]["lng"] = latLngArray[index].pos.lng
-return result[]
+return result
 }
 
 app.get("/vessle/:position",(req,res)=>{
