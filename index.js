@@ -52,6 +52,9 @@ app.get("/vessle/:position",(req,res)=>{
   
 });
 
+app.get("/vessle/reset",(req,res)=>{
+  index = 0
+})
 app.get('/', (req, res) => {
   res.sendFile(resolve(__dirname, 'pages/index.html'));
 });
