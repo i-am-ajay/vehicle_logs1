@@ -70,6 +70,10 @@ app.get("/vessle/setArray",(req,res)=>{
   res.send("Array set")
 })
 
+app.get("/vessle/empty",(req,res) =>{
+  [{"ASI":null}]
+})
+
 app.get("/vessle/positionArray",(req,res)=>{
   res.json(latLngArray)
 })
