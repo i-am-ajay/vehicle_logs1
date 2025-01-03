@@ -5,11 +5,14 @@ const app = express();
 const port = 3010;
 let index = 0;
 app.use(express.static('static'));
+latLngArray = [{"pos":{"lat":1,"lang":1}},{"pos":{"lat":2,"lang":2}},
+{"pos":{"lat":3,"lang":3}},{"pos":{"lat":4,"lang":4}}]
 
+function setArray(array){
+  latLngArray = array
+}
 function jsonLogs(iteration){
-  latLngArray = [{"pos":{"lat":1,"lang":1}},{"pos":{"lat":2,"lang":2}},
-  {"pos":{"lat":3,"lang":3}},{"pos":{"lat":4,"lang":4}}]
-  result = {
+  result = [{
     "AIS":{
         "MMSI":227441980,
         "TIMESTAMP":"2017-08-11 11:17:37 UTC",
@@ -37,9 +40,9 @@ function jsonLogs(iteration){
         "ECA": false,
         "DISTANCE_REMAINING": null,
         "ETA_PREDICTED": null
-        }}
-result["AIS"]["LATITUDE"] = latLngArray[index].pos.lat
-result["AIS"]["LONGITUDE"] = latLngArray[index].pos.lang
+        }}]
+result[0]["AIS"]["LATITUDE"] = latLngArray[index].pos.lat
+result[0]["AIS"]["LONGITUDE"] = latLngArray[index].pos.lang
 return result
 }
 
@@ -59,6 +62,12 @@ app.get("/vessle/reset",(req,res)=>{
 app.get('/', (req, res) => {
   res.sendFile(resolve(__dirname, 'pages/index.html'));
 });
+
+app.get("/vessle/setArray",(req,res)=>{
+  array = req.query.array
+  latLngArray = array
+  res.send("Array set")
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
