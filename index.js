@@ -43,7 +43,7 @@ result["AIS"]["LONGITUDE"] = latLngArray[index].pos.lang
 return result
 }
 
-app.get("/vessle/:position",(req,res)=>{
+app.get("/vessle",(req,res)=>{
   console.log(jsonLogs()[0])
   res.json(jsonLogs(index))
   if(index < 3){
