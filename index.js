@@ -15,7 +15,7 @@ function jsonLogs(iteration){
   result = [{
     "AIS":{
         "MMSI":227441980,
-        "TIMESTAMP":"2017-08-11 11:17:37 UTC",
+        "TIMESTAMP":getCurrentTimestamp(),
         "LATITUDE":46.1459,
         "LONGITUDE":-1.16631,
         "COURSE":360.0,
@@ -44,6 +44,19 @@ function jsonLogs(iteration){
 result[0]["AIS"]["LATITUDE"] = latLngArray[index].pos.lat
 result[0]["AIS"]["LONGITUDE"] = latLngArray[index].pos.lang
 return result
+}
+
+function getCurrentTimestamp() {
+  let now = new Date();
+
+  let year = now.getUTCFullYear();
+  let month = String(now.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+  let day = String(now.getUTCDate()).padStart(2, '0');
+  let hours = String(now.getUTCHours()).padStart(2, '0');
+  let minutes = String(now.getUTCMinutes()).padStart(2, '0');
+  let seconds = String(now.getUTCSeconds()).padStart(2, '0');
+
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds} UTC`;
 }
 
 app.get("/vessle",(req,res)=>{
