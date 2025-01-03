@@ -71,7 +71,7 @@ app.get("/vessle/setArray",(req,res)=>{
 })
 
 app.get("/vessle/empty",(req,res) =>{
-  [{"ASI":null}]
+  res.json([{"ASI":null}])
 })
 
 app.get("/vessle/positionArray",(req,res)=>{
