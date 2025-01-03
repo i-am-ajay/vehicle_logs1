@@ -39,14 +39,17 @@ function jsonLogs(iteration){
         "ETA_PREDICTED": null
         }}
 result["AIS"]["LATITUDE"] = latLngArray[index].pos.lat
-result["AIS"]["LONGITUDE"] = latLngArray[index].pos.lng
+result["AIS"]["LONGITUDE"] = latLngArray[index].pos.lang
 return result
 }
 
 app.get("/vessle/:position",(req,res)=>{
   console.log(jsonLogs()[0])
   res.json(jsonLogs(index))
-  index++;
+  if(index == 3){
+    index++;
+  }
+  
 });
 
 app.get('/', (req, res) => {
