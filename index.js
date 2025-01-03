@@ -70,6 +70,10 @@ app.get("/vessle/setArray",(req,res)=>{
   res.send("Array set")
 })
 
+app.get("/vessle/positionArray",(req,res)=>{
+  res.json(latLngArray)
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
