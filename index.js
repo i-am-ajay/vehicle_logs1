@@ -38,8 +38,8 @@ function jsonLogs(iteration){
         "DISTANCE_REMAINING": null,
         "ETA_PREDICTED": null
         }}
-result["AIS"]["lat"] = latLngArray[index].pos.lat
-result["AIS"]["lng"] = latLngArray[index].pos.lng
+result["AIS"]["LATITUDE"] = latLngArray[index].pos.lat
+result["AIS"]["LONGITUDE"] = latLngArray[index].pos.lng
 return result
 }
 
