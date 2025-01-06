@@ -5,8 +5,11 @@ const app = express();
 const port = 3010;
 let index = 0;
 app.use(express.static('static'));
-let latLngArray = [{"pos":{"lat":1,"lang":1}},{"pos":{"lat":2,"lang":2}},
+/*let latLngArray = [{"pos":{"lat":1,"lang":1}},{"pos":{"lat":2,"lang":2}},
 {"pos":{"lat":3,"lang":3}},{"pos":{"lat":15.410046852986724,"lang":73.78393525112394}}]
+*/
+let latLngArray = [{"pos":{"lat":1,"lang":1}},{"pos":{"lat":2,"lang":2}},
+{"pos":{"lat":3,"lang":3}},{"pos":{"lat":4,"lang":4}}]
 
 function setArray(array){
   latLngArray = array
